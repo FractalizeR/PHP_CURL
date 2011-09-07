@@ -58,7 +58,9 @@ class CURL {
      * @return CURL
      */
     public function setOption($option, $value) {
-        curl_setopt($this->curl_handler, $option, $value);
+        if (!curl_setopt($this->curl_handler, $option, $value)) {
+            throw new Exception("Failed to set CURL option '$option' with value '$value'!");
+        }
         return $this;
     }
 

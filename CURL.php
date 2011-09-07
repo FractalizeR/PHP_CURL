@@ -20,6 +20,9 @@
  * @param string Version
  * @param int ErrNo
  * @param string Error
+ * @property string Version
+ * @property int ErrNo
+ * @property string Error
  */
 class CURL {
 

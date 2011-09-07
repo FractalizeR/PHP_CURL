@@ -48,7 +48,11 @@ class CURL {
      * @return mixed
      */
     public function execute() {
-        return curl_exec($this->curl_handler);
+        $result = curl_exec($this->curl_handler);
+        if ($result === false) {
+            throw new Exception("Curl failed with error {$this->ErrNo}, message '{$this->Error}'!");
+        }
+        return $result;
     }
 
     /**
